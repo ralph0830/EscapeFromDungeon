@@ -80,14 +80,11 @@ export default class GameScene extends Phaser.Scene {
                 this.raycaster.mapGameObjects(layer, false, { collisionTiles: [3] });
             }
 
-            // Fog
-            this.fog = this.add.graphics({ fillStyle: { color: 0x000000, alpha: 1 } });
-            this.fog.fillRect(0, 0, map.widthInPixels, map.heightInPixels);
-            this.fog.setDepth(100);
+            // Fog (Removed blocking rectangle, using tint)
+            layer.setTint(0x222222);
 
             // Light Layer (Visuals)
-            layer.setTint(0x444444);
-            this.lightGraphics = this.add.graphics({ fillStyle: { color: 0xffffff, alpha: 0.5 } });
+            this.lightGraphics = this.add.graphics({ fillStyle: { color: 0xffffff, alpha: 0.3 } });
             this.lightGraphics.setBlendMode(Phaser.BlendModes.ADD);
             this.lightGraphics.setDepth(10);
 
